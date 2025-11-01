@@ -20,7 +20,7 @@ class HomeViewBody extends StatelessWidget {
             padding: EdgeInsets.only(top: 48, bottom: 16),
             child: Text(
               'Best Seller',
-              style: Styles.titleMedium,
+              style: Styles.textStyle18,
             ),
           ),
           BestSellerItem(),
