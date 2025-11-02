@@ -7,24 +7,26 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 32, bottom: 32, right: 8),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Image.asset(
-            AssetsData.logo,
-            height: 24,
-          ),
-          IconButton(
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Image.asset(
+          AssetsData.logo,
+          height: 24,
+        ),
+        SizedBox(
+          height: 25,
+          width: 25,
+          child: IconButton(
             onPressed: () {},
             icon: const Icon(
               FontAwesomeIcons.magnifyingGlass,
               color: Colors.white,
             ),
+            padding: EdgeInsets.zero,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

@@ -14,7 +14,7 @@ class BestSellerItem extends StatelessWidget {
       child: Row(
         children: [
           AspectRatio(
-            aspectRatio: 2.5 / 4,
+            aspectRatio: 70 / 105,
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
