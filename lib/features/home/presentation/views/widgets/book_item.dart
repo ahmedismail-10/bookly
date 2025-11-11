@@ -1,13 +1,13 @@
 import 'package:bookly/constants.dart';
 import 'package:bookly/core/utils/app_router.dart';
-import 'package:bookly/core/utils/assets_data.dart';
 import 'package:bookly/core/utils/styles.dart';
+import 'package:bookly/features/home/presentation/views/widgets/book_image.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class BestSellerItem extends StatelessWidget {
-  const BestSellerItem({super.key});
+class BookItem extends StatelessWidget {
+  const BookItem({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,18 +19,7 @@ class BestSellerItem extends StatelessWidget {
         height: 128,
         child: Row(
           children: [
-            AspectRatio(
-              aspectRatio: 70 / 105,
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  image: const DecorationImage(
-                    image: AssetImage(AssetsData.testImage),
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ),
-            ),
+            const BookImage(),
             const SizedBox(width: 30),
             Expanded(
               child: Column(

@@ -1,7 +1,7 @@
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly/features/home/presentation/views/widgets/books_button_action.dart';
-import 'package:bookly/features/home/presentation/views/widgets/featured_item.dart';
+import 'package:bookly/features/home/presentation/views/widgets/book_image.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsSection extends StatelessWidget {
@@ -13,7 +13,7 @@ class BookDetailsSection extends StatelessWidget {
       children: [
         SizedBox(
           height: MediaQuery.of(context).size.height * (243 / 812),
-          child: const FeaturedItem(),
+          child: const BookImage(),
         ),
         const SizedBox(
           height: 42,
