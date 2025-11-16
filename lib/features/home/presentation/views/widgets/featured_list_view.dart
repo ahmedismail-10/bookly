@@ -10,28 +10,33 @@ class FeaturedListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FeaturedBooksCubit, FeaturedBooksState>(
-      builder: (context, state) {
-        if (state is FeaturedBooksSuccess) {
-          return SizedBox(
-            height: MediaQuery.of(context).size.height * (224 / 812),
-            child: ListView.builder(
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * (224 / 812),
+      child: BlocBuilder<FeaturedBooksCubit, FeaturedBooksState>(
+        builder: (context, state) {
+          if (state is FeaturedBooksSuccess) {
+            return ListView.builder(
+              physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
-              itemCount: 5,
+              itemCount: state.books.length,
               itemBuilder: (context, index) {
-                return const Padding(
-                  padding: EdgeInsets.only(right: 16),
-                  child: BookImage(),
+                return Padding(
+                  padding: const EdgeInsets.only(right: 16),
+                  child: BookImage(
+                    imageUrl:
+                        state.books[index].volumeInfo?.imageLinks?.thumbnail ??
+                        'http://books.google.com/books/content?id=4MlcEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+                  ),
                 );
               },
-            ),
-          );
-        } else if (state is FeaturedBooksFailure) {
-          return CustomErrorWidget(errMessage: state.errMessage);
-        } else {
-          return const CustomLoadingIndicator();
-        }
-      },
+            );
+          } else if (state is FeaturedBooksFailure) {
+            return CustomErrorWidget(errMessage: state.errMessage);
+          } else {
+            return const CustomLoadingIndicator();
+          }
+        },
+      ),
     );
   }
 }

@@ -13,7 +13,10 @@ class BookDetailsSection extends StatelessWidget {
       children: [
         SizedBox(
           height: MediaQuery.of(context).size.height * (243 / 812),
-          child: const BookImage(),
+          child: const BookImage(
+            imageUrl:
+                'http://books.google.com/books/content?id=4MlcEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+          ),
         ),
         const SizedBox(
           height: 42,
