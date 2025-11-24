@@ -17,11 +17,17 @@ class SearchRepoImpl implements SearchRepo {
       var data = await _apiService.get(
         endPoint: 'volumes?Filtering=free-ebooks&q=$searchQuery',
       );
-      List<BookModel> books = [];
-      for (var item in data['items']) {
-        books.add(BookModel.fromJson(item));
+      if (data['totalItems'] > 0) {
+        List<BookModel> books = [];
+        for (var item in data['items']) {
+          books.add(BookModel.fromJson(item));
+        }
+        return right(books);
+      } else {
+        return left(
+          const ServerFailure(errMessage: 'No books found'),
+        );
       }
-      return right(books);
     } on DioException catch (e) {
       return left(
         ServerFailure.fromDioException(e),

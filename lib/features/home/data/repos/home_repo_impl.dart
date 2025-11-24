@@ -15,11 +15,17 @@ class HomeRepoImpl implements HomeRepo {
         endPoint:
             'volumes?Filtering=free-ebooks&Sorting=newest&q=subject:computer science',
       );
-      List<BookModel> books = [];
-      for (var item in data['items']) {
-        books.add(BookModel.fromJson(item));
+      if (data['totalItems'] > 0) {
+        List<BookModel> books = [];
+        for (var item in data['items']) {
+          books.add(BookModel.fromJson(item));
+        }
+        return right(books);
+      } else {
+        return left(
+          const ServerFailure(errMessage: 'No books found'),
+        );
       }
-      return right(books);
     } on DioException catch (e) {
       return left(
         ServerFailure.fromDioException(e),
@@ -37,11 +43,17 @@ class HomeRepoImpl implements HomeRepo {
       var data = await _apiService.get(
         endPoint: 'volumes?Filtering=free-ebooks&q=subject:Programming',
       );
-      List<BookModel> books = [];
-      for (var item in data['items']) {
-        books.add(BookModel.fromJson(item));
+      if (data['totalItems'] > 0) {
+        List<BookModel> books = [];
+        for (var item in data['items']) {
+          books.add(BookModel.fromJson(item));
+        }
+        return right(books);
+      } else {
+        return left(
+          const ServerFailure(errMessage: 'No books found'),
+        );
       }
-      return right(books);
     } on DioException catch (e) {
       return left(
         ServerFailure.fromDioException(e),
@@ -62,11 +74,17 @@ class HomeRepoImpl implements HomeRepo {
         endPoint:
             'volumes?Filtering=free-ebooks&Sorting=relevance&q=subject:$category',
       );
-      List<BookModel> books = [];
-      for (var item in data['items']) {
-        books.add(BookModel.fromJson(item));
+      if (data['totalItems'] > 0) {
+        List<BookModel> books = [];
+        for (var item in data['items']) {
+          books.add(BookModel.fromJson(item));
+        }
+        return right(books);
+      } else {
+        return left(
+          const ServerFailure(errMessage: 'No books found'),
+        );
       }
-      return right(books);
     } on DioException catch (e) {
       return left(
         ServerFailure.fromDioException(e),
