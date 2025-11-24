@@ -1,24 +1,24 @@
 part of 'searched_books_cubit.dart';
 
-sealed class SeachedBooksState extends Equatable {
-  const SeachedBooksState();
+sealed class SearchedBooksState extends Equatable {
+  const SearchedBooksState();
 
   @override
   List<Object> get props => [];
 }
 
-final class SeachedBooksInitial extends SeachedBooksState {}
+final class SearchedBooksInitial extends SearchedBooksState {}
 
-final class SeachedBooksLoading extends SeachedBooksState {}
+final class SearchedBooksLoading extends SearchedBooksState {}
 
-final class SeachedBooksSuccess extends SeachedBooksState {
+final class SearchedBooksSuccess extends SearchedBooksState {
   final List<BookModel> books;
 
-  const SeachedBooksSuccess(this.books);
+  const SearchedBooksSuccess(this.books);
 }
 
-final class SeachedBooksFailure extends SeachedBooksState {
+final class SearchedBooksFailure extends SearchedBooksState {
   final String errorMessage;
 
-  const SeachedBooksFailure(this.errorMessage);
+  const SearchedBooksFailure(this.errorMessage);
 }

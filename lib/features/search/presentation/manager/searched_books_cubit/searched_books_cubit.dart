@@ -5,19 +5,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'searched_books_state.dart';
 
-class SeachedBooksCubit extends Cubit<SeachedBooksState> {
-  SeachedBooksCubit(this.searchRepo) : super(SeachedBooksInitial());
+class SearchedBooksCubit extends Cubit<SearchedBooksState> {
+  SearchedBooksCubit(this.searchRepo) : super(SearchedBooksInitial());
   final SearchRepo searchRepo;
 
   Future<void> fetchSearchedBooks(String searchQuery) async {
-    emit(SeachedBooksLoading());
+    emit(SearchedBooksLoading());
     var result = await searchRepo.fetchSearchedBooks(searchQuery);
     result.fold(
       (failure) {
-        emit(SeachedBooksFailure(failure.errMessage));
+        emit(SearchedBooksFailure(failure.errMessage));
       },
       (books) {
-        emit(SeachedBooksSuccess(books));
+        emit(SearchedBooksSuccess(books));
       },
     );
   }
