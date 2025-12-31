@@ -1,4 +1,4 @@
-import 'package:bookly/core/utils/styles.dart';
+import 'package:bookly/features/home/presentation/views/widgets/book_details_view_body.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsView extends StatelessWidget {
@@ -8,12 +8,7 @@ class BookDetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
-        child: Center(
-          child: Text(
-            'Book Details',
-            style: Styles.textStyle20,
-          ),
-        ),
+        child: BookDetailsViewBody(),
       ),
     );
   }
