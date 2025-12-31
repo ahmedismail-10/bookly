@@ -1,7 +1,7 @@
-import 'package:bookly/features/home/presentation/views/book_details_view.dart';
+import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_image.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 class FeaturedBooksListView extends StatelessWidget {
   const FeaturedBooksListView({super.key});
@@ -19,7 +19,7 @@ class FeaturedBooksListView extends StatelessWidget {
             padding: .only(right: index == 9 ? 0 : 16),
             child: GestureDetector(
               onTap: () {
-                Get.to(() => const BookDetailsView());
+                GoRouter.of(context).push(AppRouter.kBookDetailsView);
               },
               child: const BookImage(),
             ),
