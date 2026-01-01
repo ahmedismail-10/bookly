@@ -1,3 +1,4 @@
+import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -10,6 +11,7 @@ class CustomSearchTextField extends StatelessWidget {
     return TextField(
       decoration: InputDecoration(
         hintText: 'Search',
+        hintStyle: Styles.textStyle16,
         suffixIcon: CustomIconButton(
           icon: FontAwesomeIcons.magnifyingGlass,
           size: 25,
