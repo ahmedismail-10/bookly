@@ -19,7 +19,9 @@ class BookItem extends StatelessWidget {
         height: 128,
         child: Row(
           children: [
-            const BookImage(),
+            // const BookImage(
+            //   imageUrl: '',
+            // ),
             const SizedBox(width: kPadding),
             Expanded(
               child: Column(

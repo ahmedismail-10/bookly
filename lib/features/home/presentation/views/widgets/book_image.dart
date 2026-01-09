@@ -1,15 +1,17 @@
-import 'package:bookly/core/utils/assets_data.dart';
 import 'package:flutter/material.dart';
 
 class BookImage extends StatelessWidget {
-  const BookImage({super.key});
+  const BookImage({super.key, required this.imageUrl});
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context) {
-    return const AspectRatio(
+    return AspectRatio(
       aspectRatio: 150 / 224,
       child: Image(
-        image: AssetImage(AssetsData.testImage),
+        image: NetworkImage(
+          imageUrl,
+        ),
       ),
     );
   }
