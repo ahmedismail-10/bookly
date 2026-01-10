@@ -17,7 +17,9 @@ class NewestBooksSliverList extends StatelessWidget {
             delegate: SliverChildBuilderDelegate(
               (context, index) {
                 return Padding(
-                  padding: EdgeInsets.only(bottom: index == 9 ? 0 : 20),
+                  padding: EdgeInsets.only(
+                    bottom: index == state.books.length - 1 ? 0 : 20,
+                  ),
                   child: BookItem(
                     bookModel: state.books[index],
                   ),
